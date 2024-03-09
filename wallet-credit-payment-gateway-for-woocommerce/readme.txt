@@ -22,7 +22,7 @@ This plugin allows you to add a wallet balance functionality to user profiles in
 
 == Installation ==
 
-1. Upload the `wallet-balance` folder to the `/wp-content/plugins/` directory.
+1. Upload the `wallet-credit-payment-gateway-for-woocommerce` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 3. Configure the plugin settings from the WordPress admin panel.
 
