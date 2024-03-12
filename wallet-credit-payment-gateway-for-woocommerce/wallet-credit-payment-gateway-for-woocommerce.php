@@ -110,20 +110,6 @@ function wcpg_init_gateway_class() {
 				$wallet_balance = get_user_meta( $user_id, 'wcpg_wallet_balance', true );
 				$order_total    = $order->get_total();
 
-				// Check if wallet balance is sufficient using JavaScript.
-				wc_enqueue_js(
-					'
-					jQuery(function($){
-						var walletBalance = ' . json_encode( get_user_meta( $user_id, 'wcpg_wallet_balance', true ) ) . ";
-						if (walletBalance < {$order_total}) {
-							$('body').trigger('update_checkout');
-							alert('" . esc_js( __( 'Insufficient wallet balance. Please add funds to your wallet.', 'wcpg' ) ) . "');
-							return false;
-						}
-					});
-				"
-				);
-
 				if ( $wallet_balance >= $order_total ) {
 					$new_balance = $wallet_balance - $order_total;
 					update_user_meta( $user_id, 'wcpg_wallet_balance', $new_balance );
